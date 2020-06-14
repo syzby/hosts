@@ -28,6 +28,8 @@ function write_hosts() {
 
 function write_github_host() {
     local hosts=(
+        "github.global.ssl.fastly.net"
+        "github-atom-io-herokuapp-com.freetls.fastly.net"
         "gist.github.com"
         "github.com"
         "avatars0.githubusercontent.com"
