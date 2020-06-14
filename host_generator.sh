@@ -11,7 +11,7 @@ function write_host_to_file() {
 
 function get_ip_from_domain() {
     local domain=$1
-    ip=`nslookup ${domain} | grep "Address: " | awk '{print $NF}'`
+    ip=`nslookup ${domain} | grep "Address: " | awk 'NR==1 {print $NF}'`
     echo $ip
 }
 
