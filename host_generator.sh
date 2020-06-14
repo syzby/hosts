@@ -26,7 +26,7 @@ function write_hosts() {
     done
 }
 
-function write_github_host() {
+function write_github_hosts() {
     local hosts=(
         "github.global.ssl.fastly.net"
         "github-atom-io-herokuapp-com.freetls.fastly.net"
@@ -53,14 +53,24 @@ function write_github_host() {
     write_hosts ${hosts}
 }
 
-function clear_hosts_file() {
-    rm hosts
+function write_localhost_hosts() {
+cat > hosts <<EOF
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+EOF
 }
 
 function main() {
-    clear_hosts_file
+    write_localhost_hosts
     
-    write_github_host
+    write_github_hosts
 }
 
 main
